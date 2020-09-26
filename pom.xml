@@ -47,5 +47,13 @@
             <id>myMavenRepo.write</id>
             <url>https://mymavenrepo.com/repo/XftHuP1bdLIFk4ikhmkX/</url>
         </repository>
-    </distributionManagement>	
+    </distributionManagement>
+	<servers>
+  <server>
+    <username>surya05.m@gmail.com</username>
+    <id>dfFP5I2BFYLGCs2ZTwrP</id>
+    <password>Surya.123</password>
+  </server>
+</servers>
+	
 </project>
