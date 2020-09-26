@@ -42,4 +42,10 @@
       </plugin>
     </plugins>
   </build>
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/XftHuP1bdLIFk4ikhmkX/</url>
+        </repository>
+    </distributionManagement>	
 </project>
