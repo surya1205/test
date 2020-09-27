@@ -1,25 +1,30 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven 3.6.3'
-    }
+
     stages {
-        stage ('Initialize') {
+        stage ('Compile Stage') {
+
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn clean compile'
+                }
             }
         }
 
-        stage ('Build') {
+        stage ('Testing Stage') {
+
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn test'
+                }
             }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn deploy'
                 }
             }
         }
